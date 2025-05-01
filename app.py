@@ -119,7 +119,7 @@ if query:
 st.divider()
 st.subheader("Conversation History")
 
-for msg in st.session_state.chat_history:
+for msg in st.session_state.chat_history[::-1]:
     user_msg = msg.get("user_query")
     bot_msg = msg.get("response")
 
