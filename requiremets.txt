@@ -1,0 +1,15 @@
+streamlit
+langchain
+langchain_community
+langchain_core
+langchain_google_genai
+langchain_qdrant
+openai
+qdrant-client
+google-api-python-client
+google-auth
+google-auth-oauthlib
+python-dotenv
+requests
+beautifulsoup4
+numpy

@@ -3,10 +3,8 @@ import asyncio
 import json
 import threading
 
-# Assume BraedenBot is defined in braedenbot.py
 from braedenbot import BraedenBot
 
-# === Timeout Wrapper for Blocking Calls ===
 def call_with_timeout(func, args=(), kwargs={}, timeout=20):
     result = {}
     def target():
@@ -23,7 +21,6 @@ def call_with_timeout(func, args=(), kwargs={}, timeout=20):
         raise RuntimeError(result["error"])
     return result["value"]
 
-# === Session State Initialization ===
 if "bot" not in st.session_state:
     st.session_state.bot = BraedenBot()
 if "chat" not in st.session_state:
@@ -31,13 +28,17 @@ if "chat" not in st.session_state:
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# === UI ===
+st.set_page_config(
+    page_title="BraedenBot AI",       
+    page_icon="🤖",                   
+    layout="wide",                    
+    initial_sidebar_state="expanded"  
+)
 st.title("🚀 BraedenBot Documentation Assistant")
 st.markdown("A RAG-powered assistant for Braeden documentation")
 
 query = st.text_input("Ask your question:", placeholder="Ask me about Braeden...")
 
-# === Main Handler ===
 if query:
     def process_query(query):
         bot = st.session_state.bot
@@ -52,7 +53,6 @@ if query:
         history = {"user_query": query}
         chat.append({"role": "user", "content": query})
 
-        # Fetch context
         try:
             context = bot.get_context_for_query(query)
         except Exception as e:
