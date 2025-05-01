@@ -127,7 +127,20 @@ for msg in st.session_state.chat_history[::-1]:
         col1, col2 = st.columns([1, 5])
         with col2:
             st.markdown(
-                f"<div style='background-color:#DCF8C6; padding:10px; border-radius:10px; text-align:right;'>{user_msg}</div>",
+                f"""
+                <div style="
+                    background-color:#222222;
+                    color:#FFFFFF;
+                    padding: 12px 18px;
+                    border-radius: 15px;
+                    margin: 5px 0;
+                    font-size: 16px;
+                    text-align: right;
+                    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+                ">
+                    {user_msg} 👨🏻‍💻
+                </div>
+                """,
                 unsafe_allow_html=True
             )
 
@@ -135,6 +148,20 @@ for msg in st.session_state.chat_history[::-1]:
         col1, col2 = st.columns([5, 1])
         with col1:
             st.markdown(
-                f"<div style='background-color:#F1F0F0; padding:10px; border-radius:10px; text-align:left;'>{bot_msg}</div>",
+                f"""
+                <div style="
+                    background-color: #393E46;
+                    color: #E8E8E8;
+                    padding: 12px 18px;
+                    border-radius: 15px;
+                    margin: 5px 0;
+                    font-size: 16px;
+                    text-align: left;
+                    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+                ">
+                    🤖 {bot_msg}
+                </div>
+                """,
                 unsafe_allow_html=True
             )
+
